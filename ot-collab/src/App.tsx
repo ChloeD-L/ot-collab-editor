@@ -1,10 +1,17 @@
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { DocumentBoard } from "./components/DocumentBoard/DocumentBoard";
+import { DocumentEditor } from "./components/DocumentEditor/DocumentEditor";
 import "./App.css";
-import Editor from "./components/Editor";
 
 function App() {
   return (
-    <div style={{ textAlign: "center", padding: "2rem" }}>
-      <Editor />
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<DocumentBoard />} />
+        <Route path="/document/:documentId" element={<DocumentEditor />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 }
